@@ -42,17 +42,18 @@ def save_to_S3(newspaper: str, newspaper_data: dict, SAVED_DATE: datetime, AWS_K
         AWSSecretKey (str): AWS secret key
     """
 
-    s3 = boto3.client(
-            "s3", 
-            region_name='us-east-1', 
+    boto_session = boto3.Session(
             aws_access_key_id=AWS_KEY_ID, 
             aws_secret_access_key=AWS_SECRET
         )
+    
+    s3 = boto_session.resource("s3")
     
     s3_object = s3.Object(
             "nlp-newspapersanalysis",
             f"raw_data/{SAVED_DATE.isocalendar().year}w{SAVED_DATE.isocalendar().week}_data_{newspaper}.json"
         )
+
 
     s3_object.put( Body=(bytes(json.dumps(newspaper_data).encode('UTF-8'))), ContentType='application/json')
 
@@ -119,7 +120,7 @@ def get_users_tweets(
             with open(f"{DATA_DIR}/{SAVED_DATE.isocalendar().year}w{SAVED_DATE.isocalendar().week}_data_{newspaper}.json", "w") as write_file:
                 json.dump({"data": response_data}, write_file)
             
-            save_to_S3(newspaper, {"data": response_data}, SAVED_DATE, AWS_KEY_ID, AWS_KEY_ID)
+            save_to_S3(newspaper, {"data": response_data}, SAVED_DATE, AWS_KEY_ID, AWS_SECRET)
             
             logging.info(f"{newspaper}: Saved! FIRST")
             continue
@@ -141,7 +142,7 @@ def get_users_tweets(
                 with open(f"{DATA_DIR}/{SAVED_DATE.isocalendar().year}w{SAVED_DATE.isocalendar().week}_data_{newspaper}.json", "w") as write_file:
                     json.dump({"data": response_data}, write_file)
                 
-                save_to_S3(newspaper, {"data": response_data}, SAVED_DATE, AWS_KEY_ID, AWS_KEY_ID)
+                save_to_S3(newspaper, {"data": response_data}, SAVED_DATE, AWS_KEY_ID, AWS_SECRET)
                 
                 logging.info(f"{newspaper}: Saved!")
                 break

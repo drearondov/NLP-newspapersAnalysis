@@ -17,10 +17,10 @@ To show how the narrative changes over a period of time in local media, both ind
 
 ## Code and Resources used
 
-**Python version:** `3.10.4`
-**Packages:** pandas, numpy, sklearn, plotly, requests, wordcloud, gensim, textblob
+* **Python version:** `3.10.4`
+* **Packages:** Pandas, Numpy, Sklearn, Plotly, Requests, Wordcloud, Gensim, Textblob, PySentimiento
 
-## Highlights
+<!-- ## Highlights
 
 ### Data retrieval
 
@@ -30,4 +30,4 @@ To show how the narrative changes over a period of time in local media, both ind
 
 ### Sentiment analysis
 
-### Topic modeling
+### Topic modeling -->
