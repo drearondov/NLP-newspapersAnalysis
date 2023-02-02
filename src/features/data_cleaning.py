@@ -30,7 +30,7 @@ def load_raw_data(time_stamps: list[tuple]) -> pd.DataFrame:
         pd.DataFrame: Data frame ready for cleaning.
     """
     if Path(f"{BASE_DIR}/data/interim/data_raw-{TIME_STAMPS[0]}-{TIME_STAMPS[-1]}.feather").is_file():
-        data_raw = pd.read_feather(f"{BASE_DIR}/data/processed/data_raw-{TIME_STAMPS[0]}-{TIME_STAMPS[-1]}.feather")
+        data_raw = pd.read_feather(f"{BASE_DIR}/data/interim/data_raw-{TIME_STAMPS[0]}-{TIME_STAMPS[-1]}.feather")
         data_raw.set_index("index", inplace=True)
     else:
         newspaper_df_list = []
@@ -203,10 +203,12 @@ if __name__ == "__main__":
 
     data.reset_index().to_feather(f"{BASE_DIR}/data/interim/data_clean-{TIME_STAMPS[0]}-{TIME_STAMPS[-1]}.feather")
 
-    df_corpus = data[["id", "created_at", "newspaper", "text_clean"]].reset_index()
+    df_corpus = data[["id", "created_at", "newspaper", "text", "text_clean"]].reset_index()
     df_corpus.rename(columns={"text_clean": "corpus"}, inplace=True)
 
     df_corpus.to_feather(f"{BASE_DIR}/data/processed/corpus-{TIME_STAMPS[0]}-{TIME_STAMPS[-1]}.feather")
+
+    logger.info("Corpus saved!")
 
     nlp = spacy.load('es_core_news_sm')
 
@@ -221,3 +223,5 @@ if __name__ == "__main__":
     dtm = make_dtm(data_dtm)
 
     dtm.reset_index().to_feather(f"{BASE_DIR}/data/processed/dtm-{TIME_STAMPS[0]}-{TIME_STAMPS[-1]}.feather")
+
+    logger.info("DTM saved!")

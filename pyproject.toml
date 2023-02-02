@@ -33,6 +33,8 @@ myst-parser = "^0.18.0"
 boto3 = "^1.24.46"
 tqdm = "^4.64.1"
 sctriangulate = "^0.12.0"
+dash = "^2.8.1"
+jupyter-dash = "^0.4.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
