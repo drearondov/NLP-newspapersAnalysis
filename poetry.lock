@@ -1561,6 +1561,78 @@ ssh = ["paramiko"]
 tqdm = ["tqdm"]
 
 [[package]]
+name = "fst-pso"
+version = "1.8.1"
+description = "Fuzzy Self-Tuning PSO global optimization library"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "fst-pso-1.8.1.tar.gz", hash = "sha256:b3d16ec27b0b4d36b35b306af40c00cd0b34e5e0a9e30a71ed02490e8954a26a"},
+]
+
+[package.dependencies]
+miniful = "*"
+numpy = "*"
+
+[[package]]
+name = "fuzzytm"
+version = "2.0.5"
+description = "A Python package for Fuzzy Topic Models"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "FuzzyTM-2.0.5-py3-none-any.whl", hash = "sha256:b6f1480d74767ef26594c0bdf47aa0a316351719b1a253e31387e5f4a1a4bdc6"},
+    {file = "FuzzyTM-2.0.5.tar.gz", hash = "sha256:2042e48dddffc9cda5058b0b3fa9a6b3d2c471739f56d34da2810a08c7fd06d5"},
+]
+
+[package.dependencies]
+numpy = "*"
+pandas = "*"
+pyfume = "*"
+scipy = "*"
+
+[[package]]
+name = "gensim"
+version = "4.3.0"
+description = "Python framework for fast Vector Space Modelling"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "gensim-4.3.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:1f2420150117bb312f8ece2116c5b3a7620164fcd66e94883320b32d34948a05"},
+    {file = "gensim-4.3.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:ab1511aa13fe55d024348e020010b01a408f2035d48e9eb4d7ad7657d44e339d"},
+    {file = "gensim-4.3.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e83d8ce322d6a3a93228944aba95e6951769d5238d49b6c5b89ad2515a56a136"},
+    {file = "gensim-4.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:74f09f08a1798d6f752ea17f430b07b8ac1387e6f714f3b5e93dcc082cd9c497"},
+    {file = "gensim-4.3.0-cp310-cp310-win_amd64.whl", hash = "sha256:cb1958ffb2a46af920e17bbce328f40ffc5eae9557d0c129287358283fd2e63f"},
+    {file = "gensim-4.3.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:81f4f1e4b70e770cf6262f2af77a1758dabf636c8866737d6904fb8c0e7ccfe0"},
+    {file = "gensim-4.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:58dc2a700328e8fa794e7a2f6567a1543655ef5ec5a52d8604239c9e0b3e32ed"},
+    {file = "gensim-4.3.0-cp311-cp311-win_amd64.whl", hash = "sha256:b846be8cc6205944e8426179b2fc87eb0e74d1debf3993223d9c03d378677e5c"},
+    {file = "gensim-4.3.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:33fc1d2d50d391fcc49175073da5728ba4ae636f67f4ecd9252583bbd139e391"},
+    {file = "gensim-4.3.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:b74d0a3d2e3baf9ad5af6f258808a2df4d366457e18b6f64d0d2398995bfff92"},
+    {file = "gensim-4.3.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d7a7c3dcc37735ecdd5bac8c0fa9816a3d584af7ee08a7869c51004be32bd3da"},
+    {file = "gensim-4.3.0-cp38-cp38-win_amd64.whl", hash = "sha256:4bc846b20146d2cd0fff7c48cb1d9349e30c3c8ef3819034576457fd56bd6c13"},
+    {file = "gensim-4.3.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:b389d545c5bdc7243617802d87dca36db191819642b9ba24e0bb3108640fec03"},
+    {file = "gensim-4.3.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:d864da3b39d22df068e25220bdf33c633c812f057f9c0dc9a8985a602efff739"},
+    {file = "gensim-4.3.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4073daadfe58fd89202b40fd4ca375aadda50a7475ad92fc37647b910286bb14"},
+    {file = "gensim-4.3.0-cp39-cp39-win_amd64.whl", hash = "sha256:0a94d28e31803c2bc14003b0ae047596021ea40a9dd3b38ce1842f4097507c6c"},
+    {file = "gensim-4.3.0.tar.gz", hash = "sha256:64bd7ec62990215878822e8b2569d1835054f56cdf53600ddfe9927e31f3b48d"},
+]
+
+[package.dependencies]
+FuzzyTM = ">=0.4.0"
+numpy = ">=1.18.5"
+scipy = ">=1.7.0"
+smart-open = ">=1.8.1"
+
+[package.extras]
+distributed = ["Pyro4 (>=4.27)"]
+docs = ["POT", "Pyro4", "Pyro4 (>=4.27)", "annoy", "cython", "matplotlib", "memory-profiler", "mock", "nltk", "nmslib", "pandas", "pytest", "pytest-cov", "sphinx (==5.1.1)", "sphinx-gallery (==0.11.1)", "sphinxcontrib-napoleon (==0.7)", "sphinxcontrib.programoutput (==0.17)", "statsmodels", "testfixtures", "visdom (>=0.1.8,!=0.1.8.7)"]
+test = ["POT", "cython", "mock", "nmslib", "pytest", "pytest-cov", "testfixtures", "visdom (>=0.1.8,!=0.1.8.7)"]
+test-win = ["POT", "cython", "mock", "nmslib", "pytest", "pytest-cov", "testfixtures"]
+
+[[package]]
 name = "gevent"
 version = "22.10.2"
 description = "Coroutine-based network library"
@@ -2884,6 +2956,21 @@ files = [
 ]
 
 [[package]]
+name = "miniful"
+version = "0.0.6"
+description = "Minimal Fuzzy Library"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "miniful-0.0.6.tar.gz", hash = "sha256:642c9f36b87c81b3efc29947379b5b99b8d33185c904a7bc320d89a8e1871429"},
+]
+
+[package.dependencies]
+numpy = ">=1.12.0"
+scipy = ">=1.0.0"
+
+[[package]]
 name = "mistune"
 version = "2.0.4"
 description = "A sane Markdown parser with useful plugins and renderers"
@@ -4127,6 +4214,24 @@ dotenv = ["python-dotenv (>=0.10.4)"]
 email = ["email-validator (>=1.0.3)"]
 
 [[package]]
+name = "pyfume"
+version = "0.2.25"
+description = "A Python package for fuzzy model estimation"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "pyFUME-0.2.25-py3-none-any.whl", hash = "sha256:7743e4c26c61172d88f4f47e73f2fb6c00dfb7a9d64717727dc72c24f01a6b53"},
+    {file = "pyFUME-0.2.25.tar.gz", hash = "sha256:b83d481c5c8d77dcafddec873d9e2983a5f6fab2d3639b18b10cacb885dbbdf0"},
+]
+
+[package.dependencies]
+fst-pso = "*"
+numpy = "*"
+scipy = "*"
+simpful = "*"
+
+[[package]]
 name = "pygments"
 version = "2.13.0"
 description = "Pygments is a syntax highlighting package written in Python."
@@ -5022,6 +5127,23 @@ files = [
 docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
 testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
+
+[[package]]
+name = "simpful"
+version = "2.9.0"
+description = "A user-friendly Python library for fuzzy logic"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "simpful-2.9.0-py3-none-any.whl", hash = "sha256:6d7e8077ac2b2499c3a1b86185cac52cc366d0a578428197b12575e451300855"},
+    {file = "simpful-2.9.0.tar.gz", hash = "sha256:29b0c1fe1dab5dc9eb137cf8ac7fad5ca44443398bd3917f14a37df6dc7f55a4"},
+]
+
+[package.dependencies]
+numpy = ">=1.12.0"
+requests = "*"
+scipy = ">=1.0.0"
 
 [[package]]
 name = "six"
@@ -6766,4 +6888,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.11"
-content-hash = "3547b62c12a8a109455963c3f5000891b734d05ad3533f9cfbe3c461f462d2ef"
+content-hash = "3f476284ab08eeed8eb32809fb896ab28f54b5f03d827d47082211d46d327cb9"
