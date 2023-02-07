@@ -89,3 +89,8 @@ target/
 .mypy_cache/
 .todo
 .python-version
+reports/graphs/emotion_bar-(2022, 35)-(2023, 3).html
+reports/graphs/emotion-prob_bar-(2022, 35)-(2023, 3).html
+reports/graphs/sentiment_bar-(2022, 35)-(2023, 3).html
+reports/graphs/sentiment-prob-bar-(2022, 35)-(2023, 3).html
+reports/graphs/top30_bar-(2022, 35)-(2023, 3).html
