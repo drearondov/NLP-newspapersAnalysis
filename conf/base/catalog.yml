@@ -1,0 +1,71 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+#
+# We support interacting with a variety of data stores including local file systems, cloud, network and HDFS
+#
+# The Data Catalog supports being able to reference the same file using two different Dataset implementations
+# (transcoding), templating and a way to reuse arguments that are frequently repeated. See more here:
+# https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+newspapers_raw_tweets:
+    type: PartitionedDataset
+    path: data/01_raw/tweets
+    dataset: json.JSONDataSet
+
+newspapers_id:
+    type: json.JSONDataSet
+    filepath: data/01_raw/newspapers_id.json
+
+raw_data:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/02_interim/data_raw
+
+clean_data:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/02_interim/data_clean
+
+corpus:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/05_model_input/corpus
+
+data_dtm:
+    type: PartitionedDataset
+    dataset: pickle.PickleDataSet
+    path: data/05_model_input/data-dtm
+
+dtm:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/04_feature/dtm
+
+dtm_newspaper:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/03_primary/dtm-newspaper
+
+top30_df:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/03_primary/top30_df
+
+sentiment_analyzer:
+    type: pickle.PickleDataSet
+    filepath: data/06_models/3-analyzer.pkl
+
+emotion_analyzer:
+    type: pickle.PickleDataSet
+    filepath: data/06_models/3-emotion-analyzer.pkl
+
+corpus_sentiment-emotion:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/07_model_output/corpus-sentiment-emotion
+
+corpus_topic:
+    type: PartitionedDataset
+    dataset: pickle.PickleDataSet
+    path: data/07_model_output/corpus-topic
