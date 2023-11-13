@@ -2,6 +2,7 @@
 This is a boilerplate pipeline 'feature_engineering'
 generated using Kedro 0.18.14
 """
+import logging
 import pandas as pd
 import spacy
 
@@ -21,7 +22,7 @@ def make_corpus(clean_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.DataFr
     corpus_data = {}
 
     for filename, load_data_function in clean_data.items():
-        new_filename = filename.replace(".feather", "").replace("data_clean", "corpus")
+        new_filename = filename.replace("data_clean", "corpus")
 
         clean_data = load_data_function()
         clean_data.drop(["index"], axis=1, inplace=True)
@@ -50,7 +51,7 @@ def make_data_dtm(corpus_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.Dat
     data_dtm_data = {}
 
     for filename, load_data_function in corpus_data.items():
-        new_filename = filename.replace(".feather", "").replace("corpus", "data_dtm")
+        new_filename = filename.replace("corpus", "data_dtm")
 
         data_dtm = load_data_function()
 
@@ -85,7 +86,7 @@ def make_dtm(data_dtm_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.DataFr
     dtm_data = {}
 
     for filename, load_data_function in data_dtm_data.items():
-        new_filename = filename.replace(".feather", "").replace("data_dtm", "dtm")
+        new_filename = filename.replace("data_dtm", "dtm")
 
         data_dtm = load_data_function()
 
@@ -116,19 +117,18 @@ def make_dtm_newspaper(
         Dict[str, pd.DataFrame]: Dictionary with Dataframes with the Top 30 words per Newspaper.
     """
     dtm_newspaper_dict = {}
+    logger = logging.getLogger(__name__)
 
     for (filename, corpus_data_function), dtm_data_function in zip(
         corpus_data.items(), dtm_data.values()
     ):
-        new_filename = filename.replace(".feather", "").replace(
-            "corpus", "dtm_newspaper"
-        )
+        new_filename = filename.replace("corpus", "dtm_newspaper")
 
         corpus = corpus_data_function()
         dtm = dtm_data_function()
 
         corpus.set_index("index", inplace=True)
-        dtm.set_index("index", inplace=True)
+        dtm.set_index("id.", inplace=True)
 
         newspapers = corpus["newspaper"].unique()
 
@@ -156,5 +156,7 @@ def make_dtm_newspaper(
             ] = filtered_data.sum(axis=0)
 
         dtm_newspaper_dict[new_filename] = dtm_newspaper
+
+        logger.info(f"DTM Newspaper -> {new_filename}")
 
     return dtm_newspaper_dict

@@ -28,6 +28,7 @@ def create_pipeline(**kwargs) -> Pipeline:
                 func=make_dtm_newspaper,
                 inputs=["corpus", "dtm"],
                 outputs="dtm_newspaper",
+                name="make_dtm_newspaper_node",
             ),
         ]
     )

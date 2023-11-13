@@ -47,11 +47,6 @@ dtm_newspaper:
     dataset: pandas.FeatherDataSet
     path: data/03_primary/dtm-newspaper
 
-top30_df:
-    type: PartitionedDataset
-    dataset: pandas.FeatherDataSet
-    path: data/03_primary/top30_df
-
 sentiment_analyzer:
     type: pickle.PickleDataSet
     filepath: data/06_models/3-analyzer.pkl
@@ -69,3 +64,18 @@ corpus_topic:
     type: PartitionedDataset
     dataset: pickle.PickleDataSet
     path: data/07_model_output/corpus-topic
+
+stats_summary:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/03_primary/stats_summary
+
+top30_df:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/03_primary/top30_df
+
+unique_words:
+    type: PartitionedDataset
+    dataset: pandas.FeatherDataSet
+    path: data/03_primary/unique_words
