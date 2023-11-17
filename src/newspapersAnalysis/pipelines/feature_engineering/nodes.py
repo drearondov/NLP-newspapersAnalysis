@@ -10,6 +10,9 @@ from typing import Any, Callable, Dict
 from itertools import product
 
 
+logger = logging.getLogger("nlp-newpapersAnalysis")
+
+
 def make_corpus(clean_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.DataFrame]:
     """Returns a dictionary with clean Corpus Dataframes
 
@@ -48,10 +51,17 @@ def make_data_dtm(corpus_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.Dat
         Dict[str, pd.DataFrame]: Dictionary of Dataframes to be pickled. Contains NLP Spacy data.
     """
     nlp = spacy.load("es_core_news_sm")
+    logger.info("Spacy loaded!")
+
     data_dtm_data = {}
 
     for filename, load_data_function in corpus_data.items():
-        new_filename = filename.replace("corpus", "data_dtm")
+        new_filename = filename.replace("feather", "pkl").replace("corpus", "data_dtm")
+
+        logger.info(
+            f"[bold blue]Data DTM ->[/bold blue] {new_filename} starts",
+            extra={"markup": True},
+        )
 
         data_dtm = load_data_function()
 
@@ -73,6 +83,13 @@ def make_data_dtm(corpus_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.Dat
 
         data_dtm_data[new_filename] = data_dtm
 
+        logger.info(
+            f"[bold blue]Data DTM ->[/bold blue] {new_filename} finished",
+            extra={"markup": True},
+        )
+
+    return data_dtm_data
+
 
 def make_dtm(data_dtm_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.DataFrame]:
     """Returns a dictionary of Document-Term Matrices per week.
@@ -86,7 +103,12 @@ def make_dtm(data_dtm_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.DataFr
     dtm_data = {}
 
     for filename, load_data_function in data_dtm_data.items():
-        new_filename = filename.replace("data_dtm", "dtm")
+        new_filename = filename.replace("data_dtm", "dtm").replace("pkl", "feather")
+
+        logger.info(
+            f"[bold blue]DTM ->[/bold blue] {new_filename} started",
+            extra={"markup": True},
+        )
 
         data_dtm = load_data_function()
 
@@ -98,6 +120,11 @@ def make_dtm(data_dtm_data: Dict[str, Callable[[], Any]]) -> Dict[str, pd.DataFr
 
         dtm = dtm.pivot(index="id", columns="lemma", values="count")
         dtm.fillna(0.00, inplace=True)
+
+        logger.info(
+            f"[bold blue]DTM ->[/bold blue] {new_filename} finished",
+            extra={"markup": True},
+        )
 
         dtm_data[new_filename] = dtm
 
@@ -117,12 +144,16 @@ def make_dtm_newspaper(
         Dict[str, pd.DataFrame]: Dictionary with Dataframes with the Top 30 words per Newspaper.
     """
     dtm_newspaper_dict = {}
-    logger = logging.getLogger(__name__)
 
     for (filename, corpus_data_function), dtm_data_function in zip(
         corpus_data.items(), dtm_data.values()
     ):
         new_filename = filename.replace("corpus", "dtm_newspaper")
+
+        logger.info(
+            f"[bold blue]DTM per newspaper ->[/bold blue] {new_filename} started",
+            extra={"markup": True},
+        )
 
         corpus = corpus_data_function()
         dtm = dtm_data_function()
@@ -157,6 +188,9 @@ def make_dtm_newspaper(
 
         dtm_newspaper_dict[new_filename] = dtm_newspaper
 
-        logger.info(f"DTM Newspaper -> {new_filename}")
+        logger.info(
+            f"[bold blue]DTM per newspaper ->[/bold blue] {new_filename} finished",
+            extra={"markup": True},
+        )
 
     return dtm_newspaper_dict

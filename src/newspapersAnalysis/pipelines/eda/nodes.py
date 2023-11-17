@@ -21,9 +21,7 @@ def create_stats_summary(
     stats_summary_results = {}
 
     for filename, clean_data_function in clean_data_dataset.items():
-        new_filename = filename.replace(".feather", "").replace(
-            "data_clean", "stats_summary"
-        )
+        new_filename = filename.replace("data_clean", "stats_summary")
 
         data = clean_data_function()
         data_stats = pd.DataFrame()
@@ -155,6 +153,9 @@ def create_unique_words(
 
         dtm_newspaper = dtm_newspaper_data_load()
         corpus = corpus_data_load()
+
+        corpus["year"] = corpus["created_at"].dt.isocalendar().year
+        corpus["week"] = corpus["created_at"].dt.isocalendar().week
 
         unique_list = []
 

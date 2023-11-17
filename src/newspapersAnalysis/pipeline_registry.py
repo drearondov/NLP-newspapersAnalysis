@@ -15,7 +15,7 @@ from newspapersAnalysis.pipelines import (
 def register_pipelines() -> Dict[str, Pipeline]:
     """Register the project's pipelines.
     Returns:
-        (Dict[str, Pipeline]: A mapping from a pipeline name to a ``Pipeline`` object.
+        Dict[str, Pipeline]: A mapping from a pipeline name to a ``Pipeline`` object.
     """
     cleaning_and_preprocessing_pipeline = cleaning_and_preprocessing.create_pipeline()
     eda_pipeline = eda.create_pipeline()

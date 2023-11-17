@@ -87,25 +87,9 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# Extra
 .todo
 .python-version
-reports/graphs/emotion_bar-(2022, 35)-(2023, 3).html
-reports/graphs/emotion-prob_bar-(2022, 35)-(2023, 3).html
-reports/graphs/sentiment_bar-(2022, 35)-(2023, 3).html
-reports/graphs/sentiment-prob-bar-(2022, 35)-(2023, 3).html
-reports/graphs/top30_bar-(2022, 35)-(2023, 3).html
-models/3-analyzer.pkl
-models/3-emotion-analyzer.pkl
-reports/emotion_bar-(2022, 35)-(2023, 3).html
-reports/emotion-prob_bar-(2022, 35)-(2023, 3).html
-reports/sentiment_bar-(2022, 35)-(2023, 3).html
-reports/sentiment-prob-bar-(2022, 35)-(2023, 3).html
-reports/dashboard/Untitled.afdesign
-reports/figures/1-scatter-tweeets-per-newspaper-(2022, 35)-(2023, 3).jpg
-reports/figures/1-tweeets-per-newspaper.jpg
-reports/figures/2-raw-engagement.png
-reports/figures/2-runique-words.png
-reports/figures/2-top30-words.png
-reports/figures/3-emotion-probability.png
-reports/figures/3-sentiment-probability.png
+reports/*
 conf/local/credentials.yml

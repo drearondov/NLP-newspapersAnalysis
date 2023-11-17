@@ -26,9 +26,7 @@ def topic_modeling(
     for (filename, data_dtm_data_function), dtm_data_function in zip(
         data_dtm_data.items(), dtm_data.values()
     ):
-        new_filename = filename.replace(".feather", "").replace(
-            "data_dtm", "topic_modeling"
-        )
+        new_filename = filename.replace("data_dtm", "topic_modeling")
 
         data_dtm = data_dtm_data_function()
         dtm = dtm_data_function()

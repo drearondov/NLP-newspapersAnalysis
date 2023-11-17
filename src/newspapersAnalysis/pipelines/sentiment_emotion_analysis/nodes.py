@@ -2,8 +2,13 @@
 This is a boilerplate pipeline 'sentiment_emotion_analysis'
 generated using Kedro 0.18.14
 """
+import logging
+
 from pysentimiento.analyzer import AnalyzerForSequenceClassification
 from typing import Dict, Any, Callable
+
+
+logger = logging.getLogger("nlp-newpapersAnalysis")
 
 
 def sentiment_emotion_analysis(
@@ -24,9 +29,13 @@ def sentiment_emotion_analysis(
     sentiment_emotion = {}
 
     for filename, corpus_data_load in corpus.items():
-        new_filename = filename.replace(".feather", "").replace(
-            "corpus", "corpus_emotion"
+        new_filename = filename.replace("corpus", "corpus_emotion")
+
+        logger.info(
+            f"[bold blue]Sentiment - Emotion Analysis ->[/bold blue] {new_filename} starts",
+            extra={"markup": True},
         )
+
         corpus_df = corpus_data_load()
 
         corpus_df["sentiment"] = corpus_df["corpus"].apply(
@@ -77,5 +86,10 @@ def sentiment_emotion_analysis(
         )
 
         sentiment_emotion[new_filename] = corpus_df
+
+        logger.info(
+            f"[bold blue]Sentiment - Emotion Analysis ->[/bold blue] {new_filename} finish",
+            extra={"markup": True},
+        )
 
     return sentiment_emotion

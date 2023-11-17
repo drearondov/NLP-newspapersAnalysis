@@ -3,6 +3,7 @@ This is a boilerplate pipeline 'cleaning_and_preprocessing'
 generated using Kedro 0.18.14
 """
 import emoji
+import logging
 import pandas as pd
 import re
 import string
@@ -10,6 +11,8 @@ import string
 from collections import defaultdict
 from num2words import num2words
 from typing import Any, Callable, Dict
+
+logger = logging.getLogger(__name__)
 
 
 def _separate_weeks(raw_tweet_data: pd.DataFrame) -> defaultdict:
@@ -32,7 +35,7 @@ def _separate_weeks(raw_tweet_data: pd.DataFrame) -> defaultdict:
         lambda x: f"{x['year']}_{x['week']}", axis=1
     )
 
-    unique_year_week = raw_tweet_data.unique()
+    unique_year_week = raw_tweet_data["year_week"].unique()
 
     for year_week in unique_year_week:
         weeks[year_week].append(
@@ -57,7 +60,7 @@ def compile_raw_data(
     data_raw = {}
 
     for filename, load_data_function in newspaper_raw_tweets.items():
-        newspaper_name = filename.replace(".json", "").split("_")[-1]
+        newspaper_name = filename.replace(".json", "").split("_data_")[-1]
 
         json_data = load_data_function()
         raw_data = json_data["data"]
@@ -70,14 +73,18 @@ def compile_raw_data(
 
         newspaper_weeks = _separate_weeks(newspaper_df)
 
+        logger.debug(f"{newspaper_weeks}")
+
         for year_week, data_frame in newspaper_weeks.items():
             year_week = year_week.split("_")
             compiled_data[f"data_raw-({year_week[0]}, {year_week[1]})"] += data_frame
 
-        for filename, df_list in compiled_data.items():
-            data_raw[filename] = pd.concat(df_list.reset_index())
+        logger.debug(compiled_data.keys())
 
-        return data_raw
+        for filename, df_list in compiled_data.items():
+            data_raw[f"{filename}.feather"] = pd.concat(df_list).reset_index()
+
+    return data_raw
 
 
 def _drop_non_relevant(data: pd.DataFrame) -> pd.DataFrame:
@@ -158,7 +165,7 @@ def _clean_text_first_pass(text: str) -> str:
     ]
 
     for noise in string_remove:
-        text = re.sub(noise, "")
+        text = re.sub(noise, "", text)
 
     text = re.sub("\n", " ", text)
 
@@ -213,7 +220,7 @@ def clean_data(raw_data: Dict[str, Callable[[], Any]]) -> Dict[str, Any]:
     clean_data = {}
 
     for filename, load_data_function in raw_data.items():
-        new_filename = filename.replace(".feather", "").replace("raw", "clean")
+        new_filename = filename.replace("raw", "clean")
         data = _drop_non_relevant(load_data_function())
 
         data["mentions"] = data["text"].apply(lambda x: re.findall("@(\w+)", x))

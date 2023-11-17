@@ -1,18 +1,14 @@
 version: 1
-
 disable_existing_loggers: False
-
 formatters:
   simple:
-    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-
+    format: "[%(asctime)s] %(levelname)s    %(message)s"
 handlers:
   console:
     class: logging.StreamHandler
     level: INFO
     formatter: simple
     stream: ext://sys.stdout
-
   info_file_handler:
     class: logging.handlers.RotatingFileHandler
     level: INFO
@@ -22,20 +18,16 @@ handlers:
     backupCount: 20
     encoding: utf8
     delay: True
-
   rich:
     class: kedro.logging.RichHandler
     rich_tracebacks: True
     # Advance options for customisation.
     # See https://docs.kedro.org/en/stable/logging/logging.html#project-side-logging-configuration
     tracebacks_show_locals: True
-
 loggers:
   kedro:
     level: INFO
-
   nlp-newpapersAnalysis:
-    level: INFO
-
+    level: DEBUG
 root:
   handlers: [rich, info_file_handler]
