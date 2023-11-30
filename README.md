@@ -22,7 +22,7 @@ The project consists of 6 pipelines that go from retrieving the data to the
 data structures that can be used for Data Analysis and Visualisation. Below is
 a picture of the pipelines flow.
 
-![pipeline flow for the project](docs/static/nlp-newspaper-pipeline.svg)
+![pipeline flow for the project](docs/_static/nlp-newspaper-pipeline.svg)
 
 > You can also check the sister project [nlp-newspapersDashboard](https://github.com/drearondov/nlp-newspapersDashboard)
 > where I buil a dashboard with the data comming from this project.
