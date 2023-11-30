@@ -85,7 +85,9 @@ def sentiment_emotion_analysis(
             corpus_df["year"].astype("str") + "w" + corpus_df["week"].astype("str")
         )
 
-        sentiment_emotion[new_filename] = corpus_df
+        sentiment_emotion[new_filename] = corpus_df.drop(
+            labels=["sentiment", "emotion"], axis=1
+        ).reset_index()
 
         logger.info(
             f"[bold blue]Sentiment - Emotion Analysis ->[/bold blue] {new_filename} finish",

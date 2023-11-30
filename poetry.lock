@@ -298,6 +298,24 @@ setuptools = {version = "*", markers = "python_version >= \"3.12\""}
 dev = ["freezegun (>=1.0,<2.0)", "pytest (>=6.0)", "pytest-cov"]
 
 [[package]]
+name = "beautifulsoup4"
+version = "4.12.2"
+description = "Screen-scraping library"
+optional = false
+python-versions = ">=3.6.0"
+files = [
+    {file = "beautifulsoup4-4.12.2-py3-none-any.whl", hash = "sha256:bd2520ca0d9d7d12694a53d44ac482d181b4ec1888909b035a3dbf40d0f57d4a"},
+    {file = "beautifulsoup4-4.12.2.tar.gz", hash = "sha256:492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"},
+]
+
+[package.dependencies]
+soupsieve = ">1.2"
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
 name = "binaryornot"
 version = "0.4.4"
 description = "Ultra-lightweight pure Python package to check if a file is binary or text."
@@ -1239,6 +1257,23 @@ ssh = ["paramiko"]
 tqdm = ["tqdm"]
 
 [[package]]
+name = "furo"
+version = "2023.9.10"
+description = "A clean customisable Sphinx documentation theme."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "furo-2023.9.10-py3-none-any.whl", hash = "sha256:513092538537dc5c596691da06e3c370714ec99bc438680edc1debffb73e5bfc"},
+    {file = "furo-2023.9.10.tar.gz", hash = "sha256:5707530a476d2a63b8cad83b4f961f3739a69f4b058bcf38a03a39fa537195b2"},
+]
+
+[package.dependencies]
+beautifulsoup4 = "*"
+pygments = ">=2.7"
+sphinx = ">=6.0,<8.0"
+sphinx-basic-ng = "*"
+
+[[package]]
 name = "gensim"
 version = "4.3.2"
 description = "Python framework for fast Vector Space Modelling"
@@ -1679,6 +1714,84 @@ yaml = ["PyYAML (>=4.2,<7.0)", "pandas (>=1.3,<2.0)"]
 yaml-yamldataset = ["PyYAML (>=4.2,<7.0)", "pandas (>=1.3,<2.0)"]
 
 [[package]]
+name = "kedro-datasets"
+version = "1.8.0"
+description = "Kedro-Datasets is where you can find all of Kedro's data connectors."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "kedro-datasets-1.8.0.tar.gz", hash = "sha256:d0f05eb8f124cdac07e85cacf6f0ba8a9ccdf8e21196f1a08f4960fdd7a9c006"},
+    {file = "kedro_datasets-1.8.0-py3-none-any.whl", hash = "sha256:d8785511121fd57d2f2b930bffc7ecd5a335eeb09ab420b832793be537b736a6"},
+]
+
+[package.dependencies]
+kedro = ">=0.16"
+lazy-loader = "*"
+
+[package.extras]
+all = ["Pillow (>=9.0,<10.0)", "PyYAML (>=4.2,<7.0)", "SQLAlchemy (>=1.4,<3.0)", "biopython (>=1.73,<2.0)", "compress-pickle[lz4] (>=2.1.0,<2.2.0)", "dask[complete] (>=2021.10)", "delta-spark (>=1.0,<3.0)", "delta-spark (>=1.2.1,<1.3.0)", "deltalake (>=0.10.0)", "deltalake (>=0.6.2)", "geopandas (>=0.6.0,<1.0)", "hdfs (>=2.5.8,<3.0)", "holoviews (>=1.13.0,<1.14.0)", "lxml (>=4.6,<5.0)", "matplotlib (>=3.0.3,<4.0)", "networkx (>=2.4,<3.0)", "opencv-python (>=4.5.5.64,<4.6.0.0)", "openpyxl (>=3.0.6,<4.0)", "pandas (>=1.3,<3.0)", "pandas-gbq (>=0.12.0,<0.18.0)", "plotly (>=4.8.0,<6.0)", "polars (>=0.18.0)", "pyarrow (>=4.0)", "pyarrow (>=6.0)", "pyarrow (>=8.0,<9.0)", "pyodbc (>=4.0,<5.0)", "pyproj (>=3.0,<4.0)", "pyspark (>=2.2,<4.0)", "redis (>=4.1,<5.0)", "requests (>=2.20,<3.0)", "s3fs (>=0.3.0,<0.5)", "scikit-learn (>=1.0.2,<1.1.0)", "scipy (>=1.7.3,<1.8.0)", "snowflake-snowpark-python (>=1.0.0,<1.1.0)", "tables (>=3.6,<3.9)", "tables (>=3.6,<4.0)", "tables (>=3.6.0,<3.7.0)", "tensorflow (>=2.0,<3.0)", "tensorflow-macos (>=2.0,<3.0)", "triad (>=0.6.7,<1.0)", "xlsx2csv (>=0.8.0)"]
+api = ["requests (>=2.20,<3.0)"]
+api-apidataset = ["requests (>=2.20,<3.0)"]
+biosequence = ["biopython (>=1.73,<2.0)"]
+biosequence-biosequencedataset = ["biopython (>=1.73,<2.0)"]
+dask = ["dask[complete] (>=2021.10)", "triad (>=0.6.7,<1.0)"]
+dask-parquetdataset = ["dask[complete] (>=2021.10)", "triad (>=0.6.7,<1.0)"]
+databricks = ["delta-spark (>=1.2.1,<1.3.0)", "pandas (>=1.3,<3.0)", "pyspark (>=2.2,<4.0)"]
+databricks-managedtabledataset = ["delta-spark (>=1.2.1,<1.3.0)", "pandas (>=1.3,<3.0)", "pyspark (>=2.2,<4.0)"]
+docs = ["Jinja2 (<3.1.0)", "docutils (==0.16)", "ipykernel (>=5.3,<7.0)", "myst-parser (>=1.0.0,<1.1.0)", "sphinx (>=5.3.0,<5.4.0)", "sphinx-autodoc-typehints (==1.20.2)", "sphinx-copybutton (==0.3.1)", "sphinx-notfound-page", "sphinx-rtd-theme (==1.2.0)", "sphinxcontrib-mermaid (>=0.7.1,<0.8.0)"]
+geopandas = ["geopandas (>=0.6.0,<1.0)", "pyproj (>=3.0,<4.0)"]
+geopandas-geojsondataset = ["geopandas (>=0.6.0,<1.0)", "pyproj (>=3.0,<4.0)"]
+holoviews = ["holoviews (>=1.13.0,<1.14.0)"]
+holoviews-holoviewswriter = ["holoviews (>=1.13.0,<1.14.0)"]
+matplotlib = ["matplotlib (>=3.0.3,<4.0)"]
+matplotlib-matplotlibwriter = ["matplotlib (>=3.0.3,<4.0)"]
+networkx = ["networkx (>=2.4,<3.0)"]
+networkx-networkxdataset = ["networkx (>=2.4,<3.0)"]
+pandas = ["SQLAlchemy (>=1.4,<3.0)", "deltalake (>=0.10.0)", "lxml (>=4.6,<5.0)", "openpyxl (>=3.0.6,<4.0)", "pandas (>=1.3,<3.0)", "pandas-gbq (>=0.12.0,<0.18.0)", "pyarrow (>=6.0)", "pyodbc (>=4.0,<5.0)", "tables (>=3.6,<3.9)", "tables (>=3.6,<4.0)", "tables (>=3.6.0,<3.7.0)"]
+pandas-csvdataset = ["pandas (>=1.3,<3.0)"]
+pandas-deltatabledataset = ["deltalake (>=0.10.0)", "pandas (>=1.3,<3.0)"]
+pandas-exceldataset = ["openpyxl (>=3.0.6,<4.0)", "pandas (>=1.3,<3.0)"]
+pandas-featherdataset = ["pandas (>=1.3,<3.0)"]
+pandas-gbqquerydataset = ["pandas (>=1.3,<3.0)", "pandas-gbq (>=0.12.0,<0.18.0)"]
+pandas-gbqtabledataset = ["pandas (>=1.3,<3.0)", "pandas-gbq (>=0.12.0,<0.18.0)"]
+pandas-genericdataset = ["pandas (>=1.3,<3.0)"]
+pandas-hdfdataset = ["pandas (>=1.3,<3.0)", "tables (>=3.6,<3.9)", "tables (>=3.6,<4.0)", "tables (>=3.6.0,<3.7.0)"]
+pandas-jsondataset = ["pandas (>=1.3,<3.0)"]
+pandas-parquetdataset = ["pandas (>=1.3,<3.0)", "pyarrow (>=6.0)"]
+pandas-sqlquerydataset = ["SQLAlchemy (>=1.4,<3.0)", "pandas (>=1.3,<3.0)", "pyodbc (>=4.0,<5.0)"]
+pandas-sqltabledataset = ["SQLAlchemy (>=1.4,<3.0)", "pandas (>=1.3,<3.0)"]
+pandas-xmldataset = ["lxml (>=4.6,<5.0)", "pandas (>=1.3,<3.0)"]
+pickle = ["compress-pickle[lz4] (>=2.1.0,<2.2.0)"]
+pickle-pickledataset = ["compress-pickle[lz4] (>=2.1.0,<2.2.0)"]
+pillow = ["Pillow (>=9.0,<10.0)"]
+pillow-imagedataset = ["Pillow (>=9.0,<10.0)"]
+plotly = ["pandas (>=1.3,<3.0)", "plotly (>=4.8.0,<6.0)"]
+plotly-jsondataset = ["plotly (>=4.8.0,<6.0)"]
+plotly-plotlydataset = ["pandas (>=1.3,<3.0)", "plotly (>=4.8.0,<6.0)"]
+polars = ["deltalake (>=0.6.2)", "polars (>=0.18.0)", "pyarrow (>=4.0)", "xlsx2csv (>=0.8.0)"]
+polars-csvdataset = ["polars (>=0.18.0)"]
+polars-eagerpolarsdataset = ["deltalake (>=0.6.2)", "polars (>=0.18.0)", "pyarrow (>=4.0)", "xlsx2csv (>=0.8.0)"]
+polars-genericdataset = ["deltalake (>=0.6.2)", "polars (>=0.18.0)", "pyarrow (>=4.0)", "xlsx2csv (>=0.8.0)"]
+polars-lazypolarsdataset = ["deltalake (>=0.6.2)", "polars (>=0.18.0)", "pyarrow (>=4.0)"]
+redis = ["redis (>=4.1,<5.0)"]
+snowflake = ["pyarrow (>=8.0,<9.0)", "snowflake-snowpark-python (>=1.0.0,<1.1.0)"]
+snowflake-snowparktabledataset = ["pyarrow (>=8.0,<9.0)", "snowflake-snowpark-python (>=1.0.0,<1.1.0)"]
+spark = ["delta-spark (>=1.0,<3.0)", "hdfs (>=2.5.8,<3.0)", "pyspark (>=2.2,<4.0)", "s3fs (>=0.3.0,<0.5)"]
+spark-deltatabledataset = ["delta-spark (>=1.0,<3.0)", "hdfs (>=2.5.8,<3.0)", "pyspark (>=2.2,<4.0)", "s3fs (>=0.3.0,<0.5)"]
+spark-sparkdataset = ["hdfs (>=2.5.8,<3.0)", "pyspark (>=2.2,<4.0)", "s3fs (>=0.3.0,<0.5)"]
+spark-sparkhivedataset = ["hdfs (>=2.5.8,<3.0)", "pyspark (>=2.2,<4.0)", "s3fs (>=0.3.0,<0.5)"]
+spark-sparkjdbcdataset = ["hdfs (>=2.5.8,<3.0)", "pyspark (>=2.2,<4.0)", "s3fs (>=0.3.0,<0.5)"]
+svmlight = ["scikit-learn (>=1.0.2,<1.1.0)", "scipy (>=1.7.3,<1.8.0)"]
+svmlight-svmlightdataset = ["scikit-learn (>=1.0.2,<1.1.0)", "scipy (>=1.7.3,<1.8.0)"]
+tensorflow = ["tensorflow (>=2.0,<3.0)", "tensorflow-macos (>=2.0,<3.0)"]
+tensorflow-tensorflowmodeldataset = ["tensorflow (>=2.0,<3.0)", "tensorflow-macos (>=2.0,<3.0)"]
+test = ["Jinja2 (<3.1.0)", "Pillow (>=9.0,<10.0)", "SQLAlchemy (>=1.2,<2.0)", "adlfs (>=2021.7.1,<=2022.2)", "adlfs (>=2023.1,<2024.0)", "bandit (>=1.6.2,<2.0)", "behave (==1.2.6)", "biopython (>=1.73,<2.0)", "black (>=22.0,<23.0)", "blacken-docs (==1.9.2)", "cloudpickle (<=2.0.0)", "compress-pickle[lz4] (>=2.1.0,<2.2.0)", "coverage[toml]", "dask[complete] (>=2021.10,<2022.0)", "delta-spark (>=1.2.1)", "delta-spark (>=1.2.1,<1.3.0)", "deltalake (>=0.10.0)", "dill (>=0.3.1,<0.4.0)", "filelock (>=3.4.0,<4.0)", "gcsfs (>=2021.4,<=2023.1)", "gcsfs (>=2023.1,<2023.3)", "geopandas (>=0.6.0,<1.0)", "hdfs (>=2.5.8,<3.0)", "holoviews (>=1.13.0)", "import-linter[toml] (==1.2.6)", "ipython (>=7.31.1,<8.0)", "joblib (>=0.14)", "jupyter (>=1.0,<2.0)", "jupyterlab (>=3.0,<4.0)", "lxml (>=4.6,<5.0)", "matplotlib (>=3.0.3,<3.4)", "matplotlib (>=3.5,<3.6)", "memory-profiler (>=0.50.0,<1.0)", "moto (==1.3.7)", "moto (==4.1.12)", "networkx (>=2.4,<3.0)", "opencv-python (>=4.5.5.64,<4.6.0.0)", "openpyxl (>=3.0.3,<4.0)", "packaging", "pandas (>=1.3,<2.0)", "pandas-gbq (>=0.12.0,<0.18.0)", "pandas-gbq (>=0.18.0)", "plotly (>=4.8.0,<6.0)", "polars[deltalake,xlsx2csv] (>=0.18.0,<0.19.0)", "pre-commit (>=2.9.2)", "pyarrow (>=1.0)", "pyarrow (>=7.0)", "pyodbc (>=4.0.35,<4.1.0)", "pyproj (>=3.0,<4.0)", "pyspark (>=2.2,<3.4)", "pyspark (>=3.4)", "pytest (>=7.2,<8.0)", "pytest-cov (>=3.0,<4.0)", "pytest-mock (>=1.7.1,<2.0)", "pytest-xdist[psutil] (>=2.2.1,<2.3.0)", "redis (>=4.1,<5.0)", "requests (>=2.20,<3.0)", "requests-mock (>=1.6,<2.0)", "ruff (>=0.0.290,<0.1.0)", "s3fs (>=0.3.0,<0.5)", "scikit-learn (>=1.0.2,<2)", "scipy (>=1.7.3)", "snowflake-snowpark-python (>=1.0.0,<1.1.0)", "tables (>=3.6,<3.9)", "tables (>=3.6,<4.0)", "tables (>=3.6.0,<3.7.0)", "tables (>=3.8.0,<3.9.0)", "tensorflow (>=2.0,<3.0)", "tensorflow-macos (>=2.0,<3.0)", "triad (>=0.6.7,<1.0)", "trufflehog (>=2.1,<3.0)", "xlsxwriter (>=1.0,<2.0)"]
+video = ["opencv-python (>=4.5.5.64,<4.6.0.0)"]
+video-videodataset = ["opencv-python (>=4.5.5.64,<4.6.0.0)"]
+yaml = ["PyYAML (>=4.2,<7.0)", "pandas (>=1.3,<3.0)"]
+yaml-yamldataset = ["PyYAML (>=4.2,<7.0)", "pandas (>=1.3,<3.0)"]
+
+[[package]]
 name = "kiwisolver"
 version = "1.4.5"
 description = "A fast implementation of the Cassowary constraint solver"
@@ -1804,6 +1917,21 @@ files = [
 
 [package.extras]
 data = ["language-data (>=1.1,<2.0)"]
+
+[[package]]
+name = "lazy-loader"
+version = "0.3"
+description = "lazy_loader"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "lazy_loader-0.3-py3-none-any.whl", hash = "sha256:1e9e76ee8631e264c62ce10006718e80b2cfc74340d17d1031e0f84af7478554"},
+    {file = "lazy_loader-0.3.tar.gz", hash = "sha256:3b68898e34f5b2a29daaaac172c6555512d0f32074f147e2254e4a6d9d838f37"},
+]
+
+[package.extras]
+lint = ["pre-commit (>=3.3)"]
+test = ["pytest (>=7.4)", "pytest-cov (>=4.1)"]
 
 [[package]]
 name = "markdown-it-py"
@@ -3764,6 +3892,17 @@ files = [
 ]
 
 [[package]]
+name = "soupsieve"
+version = "2.5"
+description = "A modern CSS selector implementation for Beautiful Soup."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "soupsieve-2.5-py3-none-any.whl", hash = "sha256:eaa337ff55a1579b6549dc679565eac1e3d000563bcb1c8ab0d0fefbc0c2cdc7"},
+    {file = "soupsieve-2.5.tar.gz", hash = "sha256:5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"},
+]
+
+[[package]]
 name = "spacy"
 version = "3.7.2"
 description = "Industrial-strength Natural Language Processing (NLP) in Python"
@@ -3907,6 +4046,23 @@ sphinxcontrib-serializinghtml = ">=1.1.9"
 docs = ["sphinxcontrib-websupport"]
 lint = ["docutils-stubs", "flake8 (>=3.5.0)", "flake8-simplify", "isort", "mypy (>=0.990)", "ruff", "sphinx-lint", "types-requests"]
 test = ["cython (>=3.0)", "filelock", "html5lib", "pytest (>=4.6)", "setuptools (>=67.0)"]
+
+[[package]]
+name = "sphinx-basic-ng"
+version = "1.0.0b2"
+description = "A modern skeleton for Sphinx themes."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "sphinx_basic_ng-1.0.0b2-py3-none-any.whl", hash = "sha256:eb09aedbabfb650607e9b4b68c9d240b90b1e1be221d6ad71d61c52e29f7932b"},
+    {file = "sphinx_basic_ng-1.0.0b2.tar.gz", hash = "sha256:9ec55a47c90c8c002b5960c57492ec3021f5193cb26cebc2dc4ea226848651c9"},
+]
+
+[package.dependencies]
+sphinx = ">=4.0"
+
+[package.extras]
+docs = ["furo", "ipython", "myst-parser", "sphinx-copybutton", "sphinx-inline-tabs"]
 
 [[package]]
 name = "sphinxcontrib-applehelp"
@@ -4996,4 +5152,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9, <3.13"
-content-hash = "f9c16fd1a683ec4ba1f8e2a611bf23f9c6257911f891b6d67de5924d7d737a9d"
+content-hash = "03ea1522f529bd187134d3bf31b411c3daddd55fb85b10a98ecd776d372687a8"

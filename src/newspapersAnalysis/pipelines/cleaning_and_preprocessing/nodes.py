@@ -1,7 +1,3 @@
-"""
-This is a boilerplate pipeline 'cleaning_and_preprocessing'
-generated using Kedro 0.18.14
-"""
 import emoji
 import logging
 import pandas as pd

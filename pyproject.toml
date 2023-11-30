@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "newspapers-analysis"
 version = "0.1.0"
-description = "Project to analyse the change in news oulets coverage in time"
+description = "Project to analyse the change in news outlets coverage in time"
 authors = ["drearondov <63360808+drearondov@users.noreply.github.com>"]
 license = "UNLICENSED"
 readme = "README.md"
@@ -20,6 +20,7 @@ kaleido = "0.2.1"
 pysentimiento = "^0.7.2"
 gensim = "^4.3.2"
 num2words = "^0.5.13"
+kedro-datasets = "^1.8.0"
 
 [tool.poetry.group.dev.dependencies]
 coverage = ">=6.4.2"
@@ -31,6 +32,7 @@ types-requests = ">=2.28.11.13"
 numpy = "^1.26.2"
 ipykernel = "^6.26.0"
 wordcloud = "^1.9.2"
+furo = "^2023.9.10"
 
 [tool.kedro]
 package_name = "newspapersAnalysis"

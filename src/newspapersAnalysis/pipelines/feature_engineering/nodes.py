@@ -159,7 +159,6 @@ def make_dtm_newspaper(
         dtm = dtm_data_function()
 
         corpus.set_index("index", inplace=True)
-        dtm.set_index("id.", inplace=True)
 
         newspapers = corpus["newspaper"].unique()
 
