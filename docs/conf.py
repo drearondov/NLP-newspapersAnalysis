@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.abspath(".."))
 needs_sphinx = "7.2.3"
 
 # Sphinx extension module names here, as strings.
-extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon", "myst_parser"]
+extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -46,9 +46,6 @@ exclude_patterns = ["_build"]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "gruvbox-dark"
-
-# MyST configurations
-myst_enable_extensions = ["colon_fence", "html_admonition"]
 
 # Napoleon configurations
 napoleon_google_docstring = True
