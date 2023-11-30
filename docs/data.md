@@ -7,9 +7,9 @@ becomes specially important when the structres are stored in binary type files
 that cannot be easily viewed. As such, this file contains information about each
 of the structures that are present in the poject.
 
-:::{note}
+```{note}
 The data directory can be found in the `conf/base.catalog.yml` file.
-:::
+```
 
 ## Newspapers ID (name: `newspapers_id`)
 

@@ -17,16 +17,16 @@ To organise the project I used `Kedro`, and divided the process into 6 pipelines
 In the Following figure you can see how the pipelines are organized and how they
 move the data though each one of the nodes.
 
-:::{figure} \_static/nlp-newspaper-pipeline.svg
+```{figure} \_static/nlp-newspaper-pipeline.svg
 :figwidth: 50%
 
 Data flow through the Kedro pipelines
-:::
+```
 
-:::{toctree}
+```{toctree}
 :hidden:
 
 data.md
 pipelines.md
 api.rst
-:::
+```
