@@ -1,7 +1,3 @@
-"""
-This is a boilerplate pipeline 'sentiment_emotion_analysis'
-generated using Kedro 0.18.14
-"""
 import logging
 
 from pysentimiento.analyzer import AnalyzerForSequenceClassification
