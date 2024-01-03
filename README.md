@@ -3,6 +3,10 @@
 ![Python Version](https://img.shields.io/badge/python-%3E=3.9-blue?style=for-the-badge&logo=python&logoColor=white)
 [![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro&style=for-the-badge)](https://kedro.org)
 ![Code style badge](https://img.shields.io/badge/style-black-black?style=for-the-badge)
+[![GitHub deployments](https://img.shields.io/github/deployments/drearondov/NLP-newspapersAnalysis/github-pages?style=for-the-badge&label=Documentation)](https://drearondov.github.io/NLP-newspapersAnalysis/)
+
+A full Data Science pipeline project about the analysis of newspapers headlines
+of Perú.
 
 ## Objective
 
@@ -37,8 +41,9 @@ a picture of the pipelines flow.
 - Topic Modeling
 
 Full documentation about the project and the data warehouse can be found in
-the documentation. And if you want to learn more abouth the building process
-you can read the accompaning blog post series on [Nou de Data](noudedata.com).
+the [documentation](https://drearondov.github.io/NLP-newspapersAnalysis/). And
+if you want to learn more abouth the building process you can read the
+accompaning blog post series on [Nou de Data](noudedata.com).
 
 ## Code and Resources used
 
